@@ -10,7 +10,7 @@
 <%
 if(request.getParameter("already")!=null)
 {
-	out.print("<script>alert('This Email is Already in use please use another')</script>");
+	out.print("<script>alert('This Email is Already registered...')</script>");
 }
 
 %>
@@ -61,6 +61,10 @@ if(request.getParameter("already")!=null)
 						<div class="form-group col-md-12">
 							<input type="text" name="address" class="form-control" id="name"
 								placeholder="Enter Address" required="required" />
+						</div>
+						<div class="form-group col-md-12">
+							<input type="date" name="dob" class="form-control" id="name"
+								placeholder="Choose Date" required="required" />
 						</div>
 						<div class="form-group col-md-12">
 							<select name="gender" class="form-control"  >

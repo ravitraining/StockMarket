@@ -48,6 +48,8 @@ public class UserRegistration extends HttpServlet {
 		String gender = request.getParameter("gender");
 		String password = request.getParameter("password");
 		String address = request.getParameter("address");
+		String dob = request.getParameter("dob");
+		String regDate=GlobalFunction.getCurrentDate();
 
 		try {
 			PreparedStatement ps1 = connection
@@ -55,7 +57,7 @@ public class UserRegistration extends HttpServlet {
 							+ email + "'");
 			ResultSet rs = ps1.executeQuery();
 			if (!rs.next()) {
-				String query = "INSERT INTO `user`(`first_name`, `last_name`, `gender`, `email`, `mobile`, `address`, `password`) VALUES "
+				String query = "INSERT INTO `user`(`first_name`, `last_name`, `gender`, `email`, `mobile`, `address`, `dob`, `reg_date`, `password`) VALUES "
 						+ "('"
 						+ fname
 						+ "','"
@@ -68,7 +70,7 @@ public class UserRegistration extends HttpServlet {
 						+ mobileno
 						+ "','"
 						+ address
-						+ "','"
+						+ "','"+dob+"','"+regDate+"','"
 						+ password + "')";
 
 				preparedStatement = connection.prepareStatement(query);
